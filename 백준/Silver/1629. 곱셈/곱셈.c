@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-  long long a, b, c, hap = 1;
-  scanf ("%lld %lld %lld", &a, &b, &c);
+  long a, b, c, hap = 1;
+  scanf ("%ld %ld %ld", &a, &b, &c);
 
   while(b > 0) {
     if(b % 2 == 1) {
@@ -12,7 +12,7 @@ int main() {
     b /= 2;
   }
 
-  printf ("%lld", hap);
+  printf ("%ld", hap);
 
   return 0;
 }
