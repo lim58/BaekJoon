@@ -2,35 +2,29 @@
 #include <string.h>
 
 int main() {
+    int N, answer = 0;
+    scanf("%d", &N);
 
-  int N, answer = 0;
-  char word[100];
-  scanf("%d", &N);
+    while (N--) {
+        char word[100];
+        scanf("%s", word);
+        
+        int check[26] = { 0 };
+        int valid = 1;
 
-  for(int i=0; i<N; i++) {
-    scanf("%s", word);
+        for (int i = 0; word[i] != '\0'; i++) {
+            if (i > 0 && word[i] == word[i - 1]) continue;
 
-    int len = strlen(word);
-    int result = 1;
-    int check[26] = { 0 };
-    
-    for(int j=0; j<len; j++) {
-      if(j>0 && word[j] == word[j-1]) {
-        continue;
-      } else {
-        if(check[word[j] - 'a'] > 0) {
-          result = 0;
-          break;
-        } else {
-          check[word[j] - 'a'] = 1;
+            if (check[word[i] - 'a']) {
+                valid = 0;
+                break;
+            }
+            check[word[i] - 'a'] = 1;
         }
-      }
-    }
-    if(result == 1) {
-      answer++;
-    }
-  }
 
-  printf("%d", answer);
-  return 0;
+        answer += valid;
+    }
+
+    printf("%d\n", answer);
+    return 0;
 }
