@@ -2,9 +2,7 @@
 #include <stdlib.h>
 
 int compare(const void *a, const void *b) {
-    int num1 = *(int *)a;
-    int num2 = *(int *)b;
-    return (num1 > num2) - (num1 < num2);
+  return (*(int *)a - *(int *)b);
 }
 
 int main() {
