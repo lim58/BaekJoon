@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-long long square(long long num) {
+int square(int num) {
   return num * num;
 }
 
 int main() {
   while(1) {
-    long long a, b, c;
-    scanf("%lld %lld %lld", &a, &b, &c);
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
 
     if(a == 0 && b == 0 && c == 0) {
       break;
