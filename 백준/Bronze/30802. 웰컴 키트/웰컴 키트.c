@@ -20,10 +20,7 @@ int main() {
     }
   }
 
-  int package = N / P;
-  int piece = N % P;
-
-  printf("%d\n%d %d", shirtsCount, package, piece);
+  printf("%d\n%d %d", shirtsCount, N / P, N % P);
 
   return 0;
 }
