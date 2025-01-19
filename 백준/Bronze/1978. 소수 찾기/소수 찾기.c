@@ -1,24 +1,30 @@
 #include <stdio.h>
-#include <math.h>
 
-int isPrime(int num) {
-  if(num == 1) return 0;
-  for(int i=2; i<sqrt(num) + 1; i++) {
-    if(num % i == 0 && num != i) {
-      return 0;
+int arr[1001] = { 0 };
+
+void prime() {
+  for(int i=2; i<=1000; i++) {
+    arr[i] = 1;
+  }
+
+  for(int i=2; i<=1000; i++) {
+    if(!arr[i]) continue;
+    for(int j=i+i; j<=1000; j+=i) {
+      arr[j] = 0;
     }
   }
-  return 1;
-}
+} 
 
 int main() {
   int N, count=0;
   scanf("%d", &N);
-  
+
+  prime();
+
   while(N--) {
-    int a;
-    scanf("%d", &a);
-    if(isPrime(a)) {
+    int number;
+    scanf("%d", &number);
+    if(arr[number]) {
       count++;
     }
   }
