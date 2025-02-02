@@ -10,14 +10,10 @@ int main() {
 		q.push(i);
 	}
 
-	for(int i=0; q.size() > 1; i++) {
-		if(i % 2 == 0) {
-			q.pop();
-		} else {
-			int val = q.front();
-			q.pop();
-			q.push(val);
-		}
+	while(q.size() > 1) {
+		q.pop();
+		q.push(q.front());
+		q.pop();
 	}
 
 	cout << q.front();
