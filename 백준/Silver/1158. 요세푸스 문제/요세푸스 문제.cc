@@ -11,13 +11,13 @@ int main() {
 	}
 
 	cout << '<';
-	for(int i=0; i<N-1; i++) {
-		int n = K - 1;
-		while(n--) {
+
+	while(q.size() > 1) {
+		for(int i=1; i<K; i++) {
 			q.push(q.front());
 			q.pop();
 		}
-		cout << q.front() << ',' << ' ';
+		cout << q.front() << ", ";
 		q.pop();
 	}
 
