@@ -1,19 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int select(int over, vector<int>& arr) {
-	int maxVal = 0;
-	for(int i=0; i<arr.size()-1; i++) {
-		for(int j=i+1; j<arr.size(); j++) {
-			int plus = arr[i] + arr[j];
-			if(maxVal < plus && over >= plus) {
-				maxVal = plus;
-			}
-		}
-	}
-	return maxVal;
-}
-
 int main() {
 	int N, M;
 	cin >> N >> M;
@@ -24,14 +11,15 @@ int main() {
 	}
 
 	int result = 0;
-	for(int i=0; i<N; i++) {
-		vector<int> copy = v;
-		copy.erase(copy.begin() + i);
-		
-		int sum = v[i];
-		sum += select(M-v[i], copy);
-
-		result = max(result, sum);
+	for(int i=0; i<N-2; i++) {
+		for(int j=i+1; j<N-1; j++) {
+			for(int k=j+1; k<N; k++) {
+				int a = v[i]+v[j]+v[k];
+				if(a <= M && result < a) {
+					result = a;
+				}
+			}
+		}
 	}
 
 	cout << result;
