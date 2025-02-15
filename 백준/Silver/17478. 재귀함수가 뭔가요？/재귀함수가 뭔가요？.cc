@@ -1,14 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void print(int n, int N) {
+void print(int n, int N, const string& rod) {
 	if(n == N + 1) return;
-	string rod;
 	
-	for(int i=0; i<n; i++) {
-		rod += "____";
-	}
-
 	cout << rod << "\"재귀함수가 뭔가요?\"\n";
 
 	if(n < N) {
@@ -19,7 +14,7 @@ void print(int n, int N) {
 		cout << rod << "\"재귀함수는 자기 자신을 호출하는 함수라네\"\n";
 	}
 
-	print(n + 1, N);
+	print(n + 1, N, rod + "____");
 
 	cout << rod << "라고 답변하였지.\n";
 }
@@ -30,7 +25,7 @@ int main() {
 
 	cout << "어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다." << '\n';
 
-	print(0, N);
+	print(0, N, "");
 
   return 0;
 }
