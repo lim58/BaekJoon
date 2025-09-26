@@ -4,13 +4,17 @@
 using namespace std;
 
 int solution(int n, int m, vector<int> section) {
-    int answer = 0; 
+    int answer = 0;
     int painted = 0;
-    
-    for(int pos: section) {
-        if(painted < pos) {
-            painted = pos + m - 1;
+    int index = 0;
+        
+    while(index < section.size()) {
+        if(painted < section[index]) {
+            painted = section[index];
+            painted += m - 1;
             answer++;
+        } else {
+            index++;
         }
     }
     
